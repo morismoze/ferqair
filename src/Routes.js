@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
-import DashboardScreen from "./screen/DashboardScreen";
+import DashboardScreen from "./screen/DashboardScreen/DashboardScreen";
 
 const Routes = () => {
     return (

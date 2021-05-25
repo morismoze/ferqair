@@ -1,0 +1,16 @@
+.roomsNav {
+    margin-top: 10vh;
+    overflow-y: auto;
+    min-width: 205px;
+}
+
+.roomsNav div:first-of-type {
+    margin-bottom: 60px;
+}
+
+.roomsNav-title {
+    padding-left: 30px;
+    color: var(--white);
+    font-weight: lighter;
+    margin-bottom: 20px;
+}

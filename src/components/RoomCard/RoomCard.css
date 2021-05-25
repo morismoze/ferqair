@@ -1,0 +1,44 @@
+.roomCard {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 20px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    border-left: 10px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.25s ease-in-out;
+}
+
+.roomCard svg path {
+    stroke: rgba(255, 255, 255, 0.4);
+    stroke-width: .95px;
+    transition: stroke 0.25s ease-in-out;
+}
+
+.roomCard:hover,
+.roomCard:hover * {
+    color: var(--blue);
+    stroke: var(--blue);
+    border-color: var(--blue);
+}
+
+.roomCard.active svg path {
+    stroke: var(--blue);
+    stroke-width: .95px;
+}
+
+.roomCard.active,
+.roomCard.active * {
+    font-weight: 600;
+    color: var(--blue);
+    fill: var(--blue);
+    border-color: var(--blue);
+}
+
+.roomName {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    margin-left: 22px;
+    transition: color 0.25s ease-in-out;
+}

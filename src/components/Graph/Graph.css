@@ -1,0 +1,23 @@
+.graphContainer {
+
+}
+
+.roomNameTitle {
+    font-weight: 500;
+    color: var(--white);
+    font-size: 25px;
+}
+
+.graphRoomName {
+    color: var(--blue);
+    font-weight: 700;
+}
+
+.graph {
+    background-color: var(--faded-dark-blue);
+    border-radius: 5px;
+    margin: 20px 30px 0 0;
+    width: unset;
+    max-width: 100%;
+    max-height: 500px;
+}

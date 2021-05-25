@@ -1,0 +1,8 @@
+.analyticsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-top: 5vh;
+    flex: 1;
+    margin-bottom: 50px;
+}

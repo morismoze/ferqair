@@ -4,6 +4,7 @@ import { config } from "../constants/AWSConfig";
 
 export const fetchReadingsData = async () => {
     AWS.config.update(config);
+
     const client = new AWS.DynamoDB.DocumentClient();
     const params = {
         TableName: "ferqair_db"
@@ -11,11 +12,11 @@ export const fetchReadingsData = async () => {
 
     try {
         const response = await client.scan(params).promise();
-        console.log(response)
+        return response;
     } catch (error) {
-        console.log(error)
-        return error;
+        console.log(error);
+        return null;
     } finally {
-        // finally.
+        // finally
     }
 }
