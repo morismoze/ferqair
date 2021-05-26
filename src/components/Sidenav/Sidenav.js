@@ -6,7 +6,7 @@ import RoomCard from "../RoomCard/RoomCard";
 const Sidenav = ({
     rooms,
     activeRoom,
-    toggleActiveRoom,
+    onRoomClick,
     toggleGroundPlan
 }) => {
     return (
@@ -21,7 +21,7 @@ const Sidenav = ({
                 <RoomCard
                     roomName={roomName}
                     activeRoom={activeRoom}
-                    onRoomClick={toggleActiveRoom}
+                    onRoomClick={() => onRoomClick(roomName)}
                     key={roomName + index}
                 />
             ))}

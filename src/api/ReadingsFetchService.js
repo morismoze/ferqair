@@ -2,12 +2,19 @@ import * as AWS from 'aws-sdk';
 
 import { config } from "../constants/AWSConfig";
 
-export const fetchReadingsData = async () => {
+export const fetchReadingsData = async (activeRoom) => {
     AWS.config.update(config);
 
     const client = new AWS.DynamoDB.DocumentClient();
     const params = {
-        TableName: "ferqair_db"
+        TableName: "ferqair_db",
+        FilterExpression: "#rid = :start_yr",
+        ExpressionAttributeNames: {
+            "#rid": "ROOM_ID",
+        },
+        ExpressionAttributeValues: {
+            ":start_yr": activeRoom
+        }
     };
 
     try {

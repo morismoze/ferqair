@@ -5,9 +5,8 @@ import {BrowserRouter} from "react-router-dom";
 import Routes from "./Routes";
 import RoomContext from "./context/RoomContext";
 import ReadingContext from "./context/ReadingContext";
-import {filterRooms, getData} from "./modules/util/main";
-import {fetchReadingsData} from "./api/ReadingsFetchService";
 import './App.css';
+import {roomsObj} from "./modules/constants/rooms";
 
 function App() {
     const [ rooms, setRooms ] = useState(null);
@@ -16,7 +15,7 @@ function App() {
 
     const [ groundPlanActive, setGroundPlanActive ] = useState(false);
 
-    const [data, setData] = useState(null);
+    const [graphData, setGraphData] = useState(null);
 
     const toggleActiveRoom = room => {
         setActiveRoom(room);
@@ -26,23 +25,17 @@ function App() {
       setGroundPlanActive(!groundPlanActive);
     };
 
-    useEffect(() => {
-        (async () => {
-            const response = await fetchReadingsData();
-            if(response) {
-                const roomsObj = filterRooms(response.Items);
-                setRooms(roomsObj);
-                toggleActiveRoom(roomsObj[0]);
+    const setData = (data) => {
+        setGraphData(data);
+    };
 
-                const data = getData(response.Items, roomsObj);
-                setData(data);
-            }
-        })();
+    useEffect(() => {
+        setRooms(roomsObj);
     }, []);
 
     return (
-        <ReadingContext.Provider value={{ data }}>
-            <RoomContext.Provider value={{ rooms, activeRoom, toggleActiveRoom, groundPlanActive, toggleGroundPlan }}>
+        <ReadingContext.Provider value={{ graphData }}>
+            <RoomContext.Provider value={{ rooms, activeRoom, toggleActiveRoom, groundPlanActive, toggleGroundPlan, setData }}>
                 <BrowserRouter>
                     <Routes/>
                 </BrowserRouter>

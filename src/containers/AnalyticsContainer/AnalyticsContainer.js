@@ -2,49 +2,50 @@ import React, {useContext, useEffect, useState} from 'react';
 
 import Graph from "../../components/Graph/Graph";
 import RoomContext from "../../context/RoomContext";
-import './AnalyticsContainer.css';
 import ReadingContext from "../../context/ReadingContext";
+import {readingsColors} from "../../modules/styles/readingsColors";
+import './AnalyticsContainer.css';
 
 const AnalyticsContainer = () => {
-    const [ datasets, setDatasets ] = useState(null);
-
     const { activeRoom } = useContext(RoomContext);
 
-    const { data } = useContext(ReadingContext);
-console.log(data)
-    useEffect(() => {
-        let temp = [];
+    const { graphData } = useContext(ReadingContext);
 
-        if(data) {
-            Object.keys(data.get(activeRoom)).forEach(reading => {
-                temp.push({
-                    label: 'label',
-                    data: [...reading],
-                    fill: false,
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgba(255, 99, 132, 0.2)',
-                });
+    const formatData = () => {
+        let temporary = [];
+
+        if(graphData && activeRoom) {
+            temporary.push({
+                label: 'temperature',
+                data: graphData.temperature,
+                fill: false,
+                backgroundColor: readingsColors['temperature'],
+                borderColor: readingsColors['temperature'],
             });
         }
 
-        setDatasets(temp);
-    }, []);
+        return temporary;
+    };
 
-    const graphData = {
-        labels: data?.get(activeRoom).timestamps,
-        datasets: datasets
+    const getLabels = () => {
+      if(graphData && graphData.timestamps) {
+          return graphData.timestamps;
+      }
     };
 
     return (
-        <div className={'analyticsContainer'}>
-            <Graph
-                activeRoom={activeRoom}
-                graphData={graphData}
-            />
-            <div className={'readingsContainer'}>
+            <div className={'analyticsContainer'}>
+                <Graph
+                    activeRoom={activeRoom}
+                    graphData={{
+                        labels: getLabels(),
+                        datasets: formatData()
+                    }}
+                />
+                <div className={'readingsContainer'}>
 
+                </div>
             </div>
-        </div>
     );
 };
 

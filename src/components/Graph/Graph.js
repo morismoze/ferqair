@@ -8,10 +8,9 @@ const Graph = ({
     activeRoom,
     graphData
 }) => {
-
     return (
         <>
-            {graphData &&
+            {graphData.labels !== undefined &&
                 <div className={'graphContainer'}>
                     {activeRoom &&
                     <h1 className={'roomNameTitle'}>

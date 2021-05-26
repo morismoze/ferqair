@@ -8,6 +8,8 @@
     border-left: 10px solid transparent;
     cursor: pointer;
     transition: border-color 0.25s ease-in-out;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .roomCard svg path {
@@ -26,6 +28,10 @@
 .roomCard.active svg path {
     stroke: var(--blue);
     stroke-width: .95px;
+}
+
+.roomCard.active {
+    background-color: #20293C;
 }
 
 .roomCard.active,

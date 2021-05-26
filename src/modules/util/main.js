@@ -8,28 +8,29 @@ export const filterRooms = items => {
     return [...rooms];
 };
 
-export const getData = (items, rooms) => {
-    let dataMap = new Map();
+export const getData = items => {
+    let data = {};
 
-    rooms.forEach(room => {
-       dataMap.set(room, {
-           temperature: [],
-           humidity: [],
-           pressure: [],
-           no2: [],
-           co: [],
-           timestamps: []
-       });
+    data = {
+        temperature: [],
+        humidity: [],
+        pressure: [],
+        no2: [],
+        co: [],
+        timestamps: []
+    }
+
+    items.forEach(item => {
+        data.temperature.push(item.READING.temp);
+        data.humidity.push(item.READING.hum);
+        data.pressure.push(item.READING.pres);
+        data.no2.push(item.READING.no2);
+        data.co.push(item.READING.co);
+
+        const date = new Date(item.TIMESTAMP);
+
+        data.timestamps.push(date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds());
     });
 
-    items.forEach((item, index) => {
-        dataMap.get(item.ROOM_ID).temperature.push(item.READING.temp);
-        dataMap.get(item.ROOM_ID).humidity.push(item.READING.hum);
-        dataMap.get(item.ROOM_ID).pressure.push(item.READING.pres);
-        dataMap.get(item.ROOM_ID).no2.push(item.READING.no2);
-        dataMap.get(item.ROOM_ID).co.push(item.READING.co);
-        dataMap.get(item.ROOM_ID).timestamps.push(item.TIMESTAMP);
-    });
-
-    return dataMap;
+    return data;
 }
