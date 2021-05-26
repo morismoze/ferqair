@@ -20,8 +20,8 @@ const AnalyticsContainer = () => {
                 label: activeReading,
                 data: graphData[activeReading],
                 fill: false,
-                backgroundColor: readingsColors['temperature'],
-                borderColor: readingsColors['temperature'],
+                backgroundColor: readingsColors[activeReading],
+                borderColor: readingsColors[activeReading],
             });
         }
 
