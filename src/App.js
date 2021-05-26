@@ -17,6 +17,8 @@ function App() {
 
     const [graphData, setGraphData] = useState(null);
 
+    const [activeReading, setActiveReading] = useState('temperature');
+
     const toggleActiveRoom = room => {
         setActiveRoom(room);
     }
@@ -29,12 +31,16 @@ function App() {
         setGraphData(data);
     };
 
+    const toggleActiveReading = (reading) => {
+        setActiveReading(reading);
+    }
+
     useEffect(() => {
         setRooms(roomsObj);
     }, []);
 
     return (
-        <ReadingContext.Provider value={{ graphData }}>
+        <ReadingContext.Provider value={{ graphData, activeReading, toggleActiveReading }}>
             <RoomContext.Provider value={{ rooms, activeRoom, toggleActiveRoom, groundPlanActive, toggleGroundPlan, setData }}>
                 <BrowserRouter>
                     <Routes/>

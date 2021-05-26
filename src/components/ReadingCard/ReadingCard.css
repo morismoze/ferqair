@@ -1,0 +1,76 @@
+.readingCard {
+    width: 100%;
+    height: 100px;
+    border-radius: 5px;
+    background-color: var(--faded-dark-blue);
+    cursor: pointer;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: filter 0.2s ease-in;
+}
+
+.readingCard:hover {
+    filter: brightness(90%);
+}
+
+.readingCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.readingName {
+    font-weight: 500;
+}
+
+.readingCard.temperature .readingName {
+    color: var(--temperature);
+}
+
+.readingCard.humidity .readingName {
+    color: var(--humidity);
+}
+
+.readingCard.pressure .readingName {
+    color: var(--pressure);
+}
+
+.readingCard.no2 .readingName {
+    color: var(--no2);
+}
+
+.readingCard.co .readingName {
+    color: var(--co);
+}
+
+.timestamp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timestampValue {
+    color: var(--white);
+    margin-left: 5px;
+    font-size: 14px;
+    padding-top: 1px;
+}
+
+.dataWrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.readingValue {
+    color: var(--white);
+    font-size: 25px;
+    margin-right: 8px;
+}
+
+.readingUnit {
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 10px;
+}

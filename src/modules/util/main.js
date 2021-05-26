@@ -34,3 +34,24 @@ export const getData = items => {
 
     return data;
 }
+
+export const getReadingUnit = (reading) => {
+  switch (reading) {
+      case 'temperature': {
+          return '°C';
+      }
+      case 'humidity': {
+          return '%';
+      }
+      case 'pressure': {
+          return 'Pa';
+      }
+      case 'no2':
+      case 'co': {
+          return 'ppm';
+      }
+      default: {
+          return '';
+      }
+  }
+};

@@ -8,12 +8,12 @@ export const fetchReadingsData = async (activeRoom) => {
     const client = new AWS.DynamoDB.DocumentClient();
     const params = {
         TableName: "ferqair_db",
-        FilterExpression: "#rid = :start_yr",
+        FilterExpression: "#rid = :room",
         ExpressionAttributeNames: {
             "#rid": "ROOM_ID",
         },
         ExpressionAttributeValues: {
-            ":start_yr": activeRoom
+            ":room": activeRoom
         }
     };
 

@@ -3,6 +3,11 @@
   --dark-blue: #242E42;
   --faded-dark-blue: #2F3B52;
   --white: #FFF;
+  --temperature: #FFAB4F;
+  --humidity: #1F8EFA;
+  --pressure: #EE423D;
+  --no2: #843FA0;
+  --co: #05C985;
 }
 
 body {
