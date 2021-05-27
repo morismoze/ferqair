@@ -6,6 +6,7 @@ import ReadingContext from "../../context/ReadingContext";
 import {readingsColors} from "../../modules/styles/readingsColors";
 import './AnalyticsContainer.css';
 import ReadingCardContainer from "../ReadingCardContainer/ReadingCardContainer";
+import {translateReading} from "../../modules/util/main";
 
 const AnalyticsContainer = () => {
     const { activeRoom } = useContext(RoomContext);
@@ -17,7 +18,7 @@ const AnalyticsContainer = () => {
 
         if(graphData && activeRoom) {
             temporary.push({
-                label: activeReading,
+                label: translateReading(activeReading),
                 data: graphData[activeReading],
                 fill: false,
                 backgroundColor: readingsColors[activeReading],
@@ -38,7 +39,7 @@ const AnalyticsContainer = () => {
         arr.pop();
         return arr;
     };
-console.log(graphData)
+
     return (
             <div className={'analyticsContainer'}>
                 <Graph

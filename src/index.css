@@ -22,3 +22,7 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+.dataError {
+  color: var(--white);
+}

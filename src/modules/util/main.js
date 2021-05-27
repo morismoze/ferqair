@@ -55,3 +55,26 @@ export const getReadingUnit = (reading) => {
       }
   }
 };
+
+export const translateReading = readingName => {
+    switch (readingName) {
+        case 'temperature': {
+            return 'Temperatura';
+        }
+        case 'humidity': {
+            return 'Vlaga';
+        }
+        case 'pressure': {
+            return 'Tlak';
+        }
+        case 'no2':{
+            return 'NO2';
+        }
+        case 'co': {
+            return 'CO';
+        }
+        default: {
+            return '';
+        }
+    }
+}
