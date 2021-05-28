@@ -5,7 +5,7 @@ import {BrowserRouter} from "react-router-dom";
 import Routes from "./Routes";
 import RoomContext from "./context/RoomContext";
 import ReadingContext from "./context/ReadingContext";
-import {roomsObj} from "./modules/constants/rooms";
+import {currentRooms} from "./modules/constants/rooms";
 import {fetchReadingsData} from "./api/ReadingsFetchService";
 import {getData} from "./modules/util/main";
 import './App.css';
@@ -13,7 +13,7 @@ import './App.css';
 function App() {
     const [ rooms, setRooms ] = useState(null);
 
-    const [ activeRoom, setActiveRoom ] = useState(roomsObj[0]);
+    const [ activeRoom, setActiveRoom ] = useState(currentRooms[0]);
 
     const [ groundPlanActive, setGroundPlanActive ] = useState(false);
 
@@ -38,7 +38,7 @@ function App() {
     }
 
     useEffect(() => {
-        setRooms(roomsObj);
+        setRooms(currentRooms);
         (async () => {
             const items = await fetchReadingsData(activeRoom);
             const data = getData(items.Items, activeRoom);

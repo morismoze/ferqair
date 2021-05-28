@@ -8,7 +8,7 @@ const ReadingCardContainer = ({
     readingData,
     timestamp
 }) => {
-    const { toggleActiveReading } = useContext(ReadingContext);
+    const { toggleActiveReading, activeReading } = useContext(ReadingContext);
 
     return (
         <ReadingCard
@@ -16,6 +16,7 @@ const ReadingCardContainer = ({
             readingData={readingData}
             timestamp={timestamp}
             onCardClick={toggleActiveReading}
+            activeReading={activeReading}
         />
     );
 };

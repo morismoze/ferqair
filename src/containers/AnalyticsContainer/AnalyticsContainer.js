@@ -23,6 +23,7 @@ const AnalyticsContainer = () => {
                 fill: false,
                 backgroundColor: readingsColors[activeReading],
                 borderColor: readingsColors[activeReading],
+                color: '#FFF'
             });
         }
 
@@ -33,6 +34,29 @@ const AnalyticsContainer = () => {
       if(graphData && graphData.timestamps) {
           return graphData.timestamps;
       }
+    };
+
+    const options = {
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white'
+                }
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "#FFF"
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    color: 'white',
+                    fontSize: 18
+                }
+            }]
+        }
     };
 
     const getReadings = (arr) => {
@@ -48,6 +72,7 @@ const AnalyticsContainer = () => {
                         labels: getLabels(),
                         datasets: formatData()
                     }}
+                    options={options}
                 />
                 <div className={'readingsContainer'}>
                     {graphData && getReadings(Object.keys(graphData)).map((reading, index) => (

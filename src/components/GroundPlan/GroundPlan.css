@@ -1,0 +1,26 @@
+.groundPlanWrapper {
+    padding: 20px;
+    background-color: var(--faded-dark-blue);
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.groundPlan path {
+    cursor: pointer;
+    transition: fill 0.25s ease-in-out;
+}
+
+.groundPlan path:hover {
+    fill: var(--co);
+}
+
+.groundPlan path[disabled='true'] {
+    fill: var(--disabled);
+    cursor: not-allowed;
+}
+
+.groundPlan path.activePathRoom {
+    fill: var(--co);
+}

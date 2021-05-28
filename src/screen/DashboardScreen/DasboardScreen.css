@@ -1,11 +1,3 @@
 .mainContainer {
     display: flex;
 }
-
-rect {
-    fill: rgba(255, 255, 255, 0);
-}
-
-#C8-05:hover {
-    fill: red;
-}

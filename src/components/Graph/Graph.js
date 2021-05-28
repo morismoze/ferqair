@@ -6,7 +6,8 @@ import './Graph.css';
 
 const Graph = ({
     activeRoom,
-    graphData
+    graphData,
+    options
 }) => {
     return (
         <>
@@ -21,6 +22,7 @@ const Graph = ({
                     <Line
                         className={'graph'}
                         data={graphData}
+                        options={options}
                     />
                 </div>
             }

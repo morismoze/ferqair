@@ -1,20 +1,27 @@
 import React from 'react';
 
 import { ReactComponent as Timestamp } from '../../modules/images/svg/timestamp.svg';
-import './ReadingCard.css';
 import {getReadingUnit, translateReading} from "../../modules/util/main";
+import './ReadingCard.css';
 
 const ReadingCard = ({
     readingData,
     readingName,
     timestamp,
-    onCardClick
+    onCardClick,
+    activeReading
 }) => {
     const unit = getReadingUnit(readingName);
 
     return (
         <div
-            className={'readingCard ' + readingName}
+            className={
+                activeReading === readingName
+                    ?
+                    `readingCard ${readingName} activeReading`
+                    :
+                    `readingCard ${readingName}`
+            }
             onClick={() => onCardClick(readingName)}
         >
             <div className={'readingCardHeader'}>
