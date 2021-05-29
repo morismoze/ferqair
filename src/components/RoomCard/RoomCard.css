@@ -13,7 +13,7 @@
 }
 
 .roomCard svg path {
-    stroke: rgba(255, 255, 255, 0.4);
+    stroke: var(--light-white);
     stroke-width: .95px;
     transition: stroke 0.25s ease-in-out;
 }
@@ -43,7 +43,7 @@
 }
 
 .roomName {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--light-white);
     font-size: 16px;
     margin-left: 22px;
     transition: color 0.25s ease-in-out;

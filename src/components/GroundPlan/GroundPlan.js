@@ -6,7 +6,9 @@ import './GroundPlan.css';
 
 const GroundPlan = ({
     activeRoom,
-    onRoomClick
+    onRoomClick,
+    isModalOpen,
+    toggleModal
 }) => {
     useEffect(() => {
         const rooms = document.querySelectorAll('.groundPlan path');
@@ -16,7 +18,7 @@ const GroundPlan = ({
                 room.setAttribute('disabled','true');
             }
         });
-    }, []);
+    }, [isModalOpen]);
 
     useEffect(() => {
         const currentActiveRoom = document.getElementById(activeRoom.toString());
@@ -24,15 +26,27 @@ const GroundPlan = ({
         if(currentActiveRoom) {
             currentActiveRoom.classList.add('activePathRoom');
         }
-    }, [activeRoom]);
+    }, [activeRoom, isModalOpen]);
 
     return (
-        <div className={'groundPlanWrapper'}>
-            <GroundPlanMap
-                onClick={onRoomClick}
-                className={'groundPlan'}
-            />
-        </div>
+        <>
+            {isModalOpen &&
+                <div className={'groundPlanModal'}>
+                    <span
+                        className={'closeModalBtn'}
+                        onClick={toggleModal}
+                    >
+                        &#10005;
+                    </span>
+                    <div className={'groundPlanWrapper'}>
+                        <GroundPlanMap
+                            onClick={onRoomClick}
+                            className={'groundPlan'}
+                        />
+                    </div>
+                </div>
+            }
+        </>
     );
 };
 

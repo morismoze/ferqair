@@ -71,7 +71,7 @@
 }
 
 .readingUnit {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--light-white);
     margin-bottom: 10px;
 }
 

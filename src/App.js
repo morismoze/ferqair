@@ -9,6 +9,7 @@ import {currentRooms} from "./modules/constants/rooms";
 import {fetchReadingsData} from "./api/ReadingsFetchService";
 import {getData} from "./modules/util/main";
 import './App.css';
+import GroundPlanContext from "./context/GroundPlanContext";
 
 function App() {
     const [ rooms, setRooms ] = useState(null);
@@ -48,10 +49,12 @@ function App() {
 
     return (
         <ReadingContext.Provider value={{ graphData, activeReading, toggleActiveReading }}>
-            <RoomContext.Provider value={{ rooms, activeRoom, toggleActiveRoom, groundPlanActive, toggleGroundPlan, setData }}>
-                <BrowserRouter>
-                    <Routes/>
-                </BrowserRouter>
+            <RoomContext.Provider value={{ rooms, activeRoom, toggleActiveRoom, groundPlanActive, setData }}>
+                <GroundPlanContext.Provider value={{ groundPlanActive, toggleGroundPlan }}>
+                    <BrowserRouter>
+                        <Routes/>
+                    </BrowserRouter>
+                </GroundPlanContext.Provider>
             </RoomContext.Provider>
         </ReadingContext.Provider>
     );

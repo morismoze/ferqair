@@ -13,6 +13,7 @@ const DashboardScreen = () => {
             <div className={'mainContainer'}>
                 <SidenavContainer/>
                 <AnalyticsContainer/>
+                <GroundPlanContainer/>
             </div>
         </>
     );

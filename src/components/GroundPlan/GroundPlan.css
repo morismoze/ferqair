@@ -1,10 +1,41 @@
+.groundPlanModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--light-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeModalBtn {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    cursor: pointer;
+    background-color: var(--faded-dark-blue);
+    color: var(--blue);
+    font-weight: 900;
+    padding: 15px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.closeModalBtn:hover {
+    filter: brightness(120%);
+}
+
 .groundPlanWrapper {
     padding: 20px;
     background-color: var(--faded-dark-blue);
+    transform: rotate(90deg);
     display: inline-block;
-    position: absolute;
-    right: 0;
-    top: 0;
 }
 
 .groundPlan path {

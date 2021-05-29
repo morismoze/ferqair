@@ -33,6 +33,8 @@ const AnalyticsContainer = () => {
     const getLabels = () => {
       if(graphData && graphData.timestamps) {
           return graphData.timestamps;
+      } else {
+          return [];
       }
     };
 

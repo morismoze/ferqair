@@ -4,9 +4,12 @@ import Sidenav from "../../components/Sidenav/Sidenav";
 import RoomContext from "../../context/RoomContext";
 import {fetchReadingsData} from "../../api/ReadingsFetchService";
 import {getData} from "../../modules/util/main";
+import GroundPlanContext from "../../context/GroundPlanContext";
 
 const SidenavContainer = () => {
-    const { rooms, activeRoom, toggleActiveRoom, toggleGroundPlan, setData } = useContext(RoomContext);
+    const { rooms, activeRoom, toggleActiveRoom, setData } = useContext(RoomContext);
+
+    const { toggleGroundPlan } = useContext(GroundPlanContext);
 
     const onRoomClick = async (roomName) => {
         toggleActiveRoom(roomName);
