@@ -14,17 +14,12 @@ const GroundPlanContainer = () => {
 
     const onRoomClick = async (event) => {
         const clickedRoom = event.target.id;
-        const parentElement = event.currentTarget.children;
 
-        if(currentRooms.indexOf(clickedRoom) !== -1) {
+        if(currentRooms.indexOf(clickedRoom) !== -1 && clickedRoom !== activeRoom) {
             toggleActiveRoom(clickedRoom);
 
-            for (const child of parentElement) {
-                if (child.classList.contains('activePathRoom')) {
-                    child.classList.remove('activePathRoom');
-                    break;
-                }
-            }
+            const previousActiveRoom = document.getElementsByClassName('activePathRoom')[0];
+            previousActiveRoom.classList.remove('activePathRoom');
 
             const items = await fetchReadingsData(clickedRoom);
             const data = getData(items.Items, clickedRoom);

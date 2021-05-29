@@ -11,12 +11,16 @@ const GroundPlan = ({
     toggleModal
 }) => {
     useEffect(() => {
-        const rooms = document.querySelectorAll('.groundPlan path');
+        const rooms = document.querySelectorAll('.groundPlan .group');
 
-        Array.from(rooms).forEach(room => {
-            if(currentRooms.indexOf(room.id.toString()) === -1) {
-                room.setAttribute('disabled','true');
-            }
+        Array.from(rooms).forEach(group => {
+            Array.from(group.children).forEach(child => {console.log(child)
+                if(child.classList.contains('room') && currentRooms.indexOf(child.id.toString()) === -1) {
+                    group.setAttribute('disabled','true');
+                } else if (child.classList.contains('room')){
+                    group.setAttribute('disabled','false');
+                }
+            });
         });
     }, [isModalOpen]);
 
@@ -38,6 +42,10 @@ const GroundPlan = ({
                     >
                         &#10005;
                     </span>
+                    <div className={'activeRoomLabelWrapper'}>
+                        <span className={'activeRoomLabel'}/>
+                        <span className={'activeRoomLabelName'}>Trenutno aktivna prostorija</span>
+                    </div>
                     <div className={'groundPlanWrapper'}>
                         <GroundPlanMap
                             onClick={onRoomClick}

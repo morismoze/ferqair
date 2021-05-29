@@ -18,7 +18,7 @@
     background-color: var(--faded-dark-blue);
     color: var(--blue);
     font-weight: 900;
-    padding: 15px;
+    padding-bottom: 2px;
     width: 40px;
     height: 40px;
     display: flex;
@@ -35,23 +35,46 @@
     padding: 20px;
     background-color: var(--faded-dark-blue);
     transform: rotate(90deg);
-    display: inline-block;
 }
 
-.groundPlan path {
+.activeRoomLabelWrapper {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.activeRoomLabel {
+    height: 20px;
+    width: 40px;
+    display: inline-block;
+    background-color: var(--co);
+}
+
+.activeRoomLabelName {
+    color: var(--white);
+    margin-left: 10px;
+}
+
+.room {
     cursor: pointer;
     transition: fill 0.25s ease-in-out;
 }
 
-.groundPlan path:hover {
+.group[disabled='false']:hover .room {
     fill: var(--co);
 }
 
-.groundPlan path[disabled='true'] {
+.group[disabled='false']:hover .room-name {
+    fill: var(--white);
+}
+
+.group[disabled='true'] .room {
     fill: var(--disabled);
     cursor: not-allowed;
 }
 
-.groundPlan path.activePathRoom {
+.activePathRoom {
     fill: var(--co);
 }
