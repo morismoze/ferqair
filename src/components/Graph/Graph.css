@@ -25,10 +25,10 @@
 
 .noData {
     position: absolute;
-    top: 57%;
+    top: 60%;
     left: 47%;
     transform: translate(-50%, -50%);
-    width: 180px;
-    height: 180px;
+    width: 30%;
+    height: 30%;
     fill: var(--blue);
 }
