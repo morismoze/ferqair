@@ -14,7 +14,7 @@ const GroundPlan = ({
         const rooms = document.querySelectorAll('.groundPlan .group');
 
         Array.from(rooms).forEach(group => {
-            Array.from(group.children).forEach(child => {console.log(child)
+            Array.from(group.children).forEach(child => {
                 if(child.classList.contains('room') && currentRooms.indexOf(child.id.toString()) === -1) {
                     group.setAttribute('disabled','true');
                 } else if (child.classList.contains('room')){
