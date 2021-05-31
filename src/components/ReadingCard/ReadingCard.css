@@ -83,12 +83,11 @@
 
 .activeReadingTick {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: -1px;
+    right: -1px;
     width: 0;
     height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid var(--blue);
-    border-left: 10px solid transparent;
-    border-right: 10px solid var(--blue);
+    border-style: solid;
+    border-width: 0 0 15px 15px;
+    border-color: transparent transparent var(--blue) transparent;
 }
