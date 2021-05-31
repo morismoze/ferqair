@@ -9,7 +9,25 @@
 
 .readingsContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 35px;
     margin: 35px 30px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+    .analyticsContainer {
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .readingsContainer {
+        margin-right: 0;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 48px) {
+    .readingsContainer {
+        width: unset;
+    }
 }

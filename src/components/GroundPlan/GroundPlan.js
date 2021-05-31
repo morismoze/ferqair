@@ -32,29 +32,33 @@ const GroundPlan = ({
         }
     }, [activeRoom, isModalOpen]);
 
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            document.body.style.overflow = 'auto'
+        };
+    }, []);
+
     return (
-        <>
-            {isModalOpen &&
-                <div className={'groundPlanModal'}>
-                    <span
-                        className={'closeModalBtn'}
-                        onClick={toggleModal}
-                    >
-                        &#10005;
-                    </span>
-                    <div className={'activeRoomLabelWrapper'}>
-                        <span className={'activeRoomLabel'}/>
-                        <span className={'activeRoomLabelName'}>Trenutno aktivna prostorija</span>
-                    </div>
-                    <div className={'groundPlanWrapper'}>
-                        <GroundPlanMap
-                            onClick={onRoomClick}
-                            className={'groundPlan'}
-                        />
-                    </div>
-                </div>
-            }
-        </>
+        <div className={'groundPlanModal'}>
+            <span
+                className={'closeModalBtn'}
+                onClick={toggleModal}
+            >
+                &#10005;
+            </span>
+            <div className={'activeRoomLabelWrapper'}>
+                <span className={'activeRoomLabel'}/>
+                <span className={'activeRoomLabelName'}>Trenutno aktivna prostorija</span>
+            </div>
+            <div className={'groundPlanWrapper'}>
+                <GroundPlanMap
+                    onClick={onRoomClick}
+                    className={'groundPlan'}
+                />
+            </div>
+        </div>
     );
 };
 

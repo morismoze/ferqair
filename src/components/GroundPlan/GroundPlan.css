@@ -78,3 +78,36 @@
 .activePathRoom {
     fill: var(--co);
 }
+
+@media screen and (max-width: 768px) {
+    .groundPlanModal {
+        overflow-y: auto;
+        align-items: baseline;
+        scroll-behavior: smooth;
+    }
+
+    .closeModalBtn {
+        top: 30px;
+        right: 30px;
+    }
+
+    .activeRoomLabelWrapper {
+        top: 120px;
+        left: unset;
+    }
+
+    .activeRoomLabelName {
+        font-size: 14px;
+    }
+
+    .groundPlanWrapper {
+        transform: rotate(0deg);
+        margin-top: 160px;
+        margin-bottom: 20px;
+    }
+
+    .groundPlan {
+        width: 250px;
+        height: auto;
+    }
+}

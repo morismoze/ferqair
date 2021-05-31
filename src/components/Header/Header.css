@@ -15,3 +15,9 @@
     font-weight: 700;
     padding-right: 10px;
 }
+
+@media screen and (max-width: 768px) {
+    .header {
+        justify-content: center;
+    }
+}
