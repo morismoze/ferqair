@@ -45,6 +45,9 @@ const ReadingCard = ({
 
                 }
             </div>
+            {activeReading === readingName &&
+                <div className={'activeReadingTick'}/>
+            }
         </div>
     );
 };
