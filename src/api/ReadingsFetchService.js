@@ -5,7 +5,19 @@ import { config } from "../constants/AWSConfig";
 export const fetchReadingsData = async (activeRoom) => {
     AWS.config.update(config);
     const client = new AWS.DynamoDB.DocumentClient();
-    const end_timestamp = new Date().getTime();
+
+    const params = {
+        TableName: "ferqair_db",
+        FilterExpression: "#rid = :room",
+        ExpressionAttributeNames: {
+            "#rid": "ROOM_ID",
+        },
+        ExpressionAttributeValues: {
+            ":room": activeRoom
+        }
+    };
+
+    /*const end_timestamp = new Date().getTime();
     const start_timestamp = new Date(new Date().getTime() - (7 * 24 * 3600 * 1000)).getTime();
 
     const params = {
@@ -20,7 +32,7 @@ export const fetchReadingsData = async (activeRoom) => {
             ":start_timestamp": start_timestamp,
             ":end_timestamp": end_timestamp
         }
-    };
+    };*/
 
     try {
         const response = await client.scan(params).promise();
