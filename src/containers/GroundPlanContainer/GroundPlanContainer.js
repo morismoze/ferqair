@@ -22,18 +22,26 @@ const GroundPlanContainer = () => {
             previousActiveRoom.classList.remove('activePathRoom');
 
             const items = await fetchReadingsData(clickedRoom);
-            const data = getData(items.Items, clickedRoom);
-            setData(data);
+            if(items) {
+                const data = getData(items.Items, clickedRoom);
+                setData(data);
+            } else {
+                setData([]);
+            }
         }
     };
 
     return (
-        <GroundPlan
-            activeRoom={activeRoom}
-            onRoomClick={onRoomClick}
-            isModalOpen={groundPlanActive}
-            toggleModal={toggleGroundPlan}
-        />
+        <>
+        {groundPlanActive &&
+            <GroundPlan
+                activeRoom={activeRoom}
+                onRoomClick={onRoomClick}
+                isModalOpen={groundPlanActive}
+                toggleModal={toggleGroundPlan}
+            />
+        }
+        </>
     );
 };
 

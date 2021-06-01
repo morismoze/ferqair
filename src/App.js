@@ -42,8 +42,13 @@ function App() {
         setRooms(currentRooms);
         (async () => {
             const items = await fetchReadingsData(activeRoom);
-            const data = getData(items.Items, activeRoom);
-            setData(data);
+
+            if(items) {
+                const data = getData(items.Items, activeRoom);
+                setData(data);
+            } else {
+                setData([]);
+            }
         })();
     }, []);
 

@@ -13,9 +13,14 @@ const SidenavContainer = () => {
 
     const onRoomClick = async (roomName) => {
         toggleActiveRoom(roomName);
+
         const items = await fetchReadingsData(roomName);
-        const data = getData(items.Items, roomName);
-        setData(data);
+        if(items) {
+            const data = getData(items.Items, roomName);
+            setData(data);
+        } else {
+            setData([]);
+        }
     };
 
     return (
