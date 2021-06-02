@@ -17,14 +17,16 @@ const Sidenav = ({
                 image={'map'}
             />
             <h3 className={'roomsNav-title'}>Prostorije</h3>
-            {rooms?.map((roomName, index) => (
-                <RoomCard
-                    roomName={roomName}
-                    activeRoom={activeRoom}
-                    onRoomClick={() => onRoomClick(roomName)}
-                    key={roomName + index}
-                />
-            ))}
+            <div className={'roomCardsContainer'}>
+                {rooms?.map((roomName, index) => (
+                    <RoomCard
+                        roomName={roomName}
+                        activeRoom={activeRoom}
+                        onRoomClick={() => onRoomClick(roomName)}
+                        key={roomName + index}
+                    />
+                ))}
+            </div>
         </nav>
     );
 };

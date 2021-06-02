@@ -1,4 +1,15 @@
-export const currentRooms = ['C8-18', 'C8-12', 'C8-03', 'C8-02', 'C8-06'].sort();
+export const currentRooms = [
+    'C8-18',
+    'C8-12',
+    'C8-03',
+    'C8-02',
+    'C8-06',
+    'C8-22',
+    'C8-16',
+    'C8-20',
+    'C8-10',
+    'C8-17',
+].sort();
 
 export const allRooms = [
     'C8-19',

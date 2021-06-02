@@ -1,10 +1,9 @@
 .roomsNav {
     margin-top: 10vh;
-    overflow-y: auto;
     min-width: 205px;
 }
 
-.roomsNav div:first-of-type {
+.roomsNav > div:first-child {
     margin-bottom: 60px;
 }
 
@@ -14,6 +13,11 @@
     font-weight: lighter;
     margin-bottom: 20px;
     font-size: 16px;
+}
+
+.roomCardsContainer {
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 @media screen and (max-width: 768px) {

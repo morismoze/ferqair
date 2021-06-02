@@ -26,6 +26,10 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 .dataError {
   color: var(--white);
 }
