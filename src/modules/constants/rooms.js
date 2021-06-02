@@ -11,6 +11,10 @@ export const currentRooms = [
     'C8-17',
 ].sort();
 
+export const realSensorRooms = [
+    'C8-18'
+].sort();
+
 export const allRooms = [
     'C8-19',
     'C8-20',

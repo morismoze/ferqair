@@ -1,7 +1,8 @@
 import React from 'react';
 
-import './Sidenav.css';
 import RoomCard from "../RoomCard/RoomCard";
+import {realSensorRooms} from "../../modules/constants/rooms";
+import './Sidenav.css';
 
 const Sidenav = ({
     rooms,
@@ -23,6 +24,7 @@ const Sidenav = ({
                         roomName={roomName}
                         activeRoom={activeRoom}
                         onRoomClick={() => onRoomClick(roomName)}
+                        realSensor={realSensorRooms.includes(roomName)}
                         key={roomName + index}
                     />
                 ))}

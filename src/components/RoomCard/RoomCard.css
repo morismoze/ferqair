@@ -12,20 +12,25 @@
     border-bottom-right-radius: 5px;
 }
 
-.roomCard svg path {
+.roomImg {
     stroke: var(--light-white);
     stroke-width: .95px;
     transition: stroke 0.25s ease-in-out;
 }
 
-.roomCard:hover,
-.roomCard:hover * {
+.roomCard:hover .roomImg,
+.roomCard:hover .roomName,
+.roomCard.active .roomImg,
+.roomCard.active .roomName {
     color: var(--blue);
     stroke: var(--blue);
-    border-color: var(--blue);
 }
 
-.roomCard.active svg path {
+.roomCard.active .roomName {
+    font-weight: 600;
+}
+
+.roomCard.active .roomImg path {
     stroke: var(--blue);
     stroke-width: .95px;
 }
@@ -34,11 +39,8 @@
     background-color: #20293C;
 }
 
-.roomCard.active,
-.roomCard.active * {
-    font-weight: 600;
-    color: var(--blue);
-    fill: var(--blue);
+.roomCard:hover,
+.roomCard.active {
     border-color: var(--blue);
 }
 
@@ -47,4 +49,8 @@
     font-size: 16px;
     margin-left: 22px;
     transition: color 0.25s ease-in-out;
+}
+
+.realSensorImg {
+    margin-left: 20px;
 }
