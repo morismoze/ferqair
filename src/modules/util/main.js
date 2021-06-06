@@ -29,7 +29,7 @@ export const getData = items => {
 
         const date = new Date(item.TIMESTAMP);
 
-        data.timestamps.push(date.getDate() + '.' + (date.getMonth() + 1) + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds());
+        data.timestamps.push(date.getDate() + '.' + (date.getMonth() + 1) + '. ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds());
     });
 
     return data;
